@@ -34,8 +34,11 @@ public class HelloWorldConfiguration extends WebMvcConfigurerAdapter{
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("UserManagement.html").addResourceLocations("/UserManagement.html");
-		registry.addResourceHandler("/static/**").addResourceLocations("/static/");
+		registry.addResourceHandler("index.html").addResourceLocations("/index.html");
+		registry.addResourceHandler("/js/**").addResourceLocations("/js/");
+		registry.addResourceHandler("/img/**").addResourceLocations("/img/");
+		registry.addResourceHandler("/css/**").addResourceLocations("/css/");
+		registry.addResourceHandler("/views/**").addResourceLocations("/views/");
 	}
 
 }

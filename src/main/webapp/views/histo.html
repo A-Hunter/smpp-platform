@@ -1,0 +1,80 @@
+<header id="header">
+        <nav class="navbar navbar-default navbar-static-top" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                   <div class="navbar-brand">
+						<a href="index.html"><img src="img/logo.png" alt="Logo"></a>
+					</div>
+                </div>
+                        		
+                <div class="navbar-collapse collapse">							
+					<div class="menu">
+						<ul class="nav nav-tabs" role="tablist">
+							<li role="presentation"><a href="/trituxsms-ang/index.html#/crud" >Users</a></li>
+							<li role="presentation"><a href="/trituxsms-ang/index.html#/sms" >SMS for individuals</a></li>
+							<li role="presentation"><a href="/trituxsms-ang/index.html#/smsAll">SMS for groups</a></li>
+							<li role="presentation"><a href="/trituxsms-ang/index.html#/histo" class="active">Historic</a></li>
+							<li role="presentation"><a href="/trituxsms-ang/index.html#/login">Log out</a></li>						
+						</ul>
+						<ul class="nav nav-tabs" role="tablist" ng-show="isuser">
+							<li role="presentation"><a href="index.html" class="active">COmpte</a></li>
+						</ul>
+					</div>
+				</div>		
+            </div><!--/.container-->
+        </nav><!--/nav-->		
+    </header><!--/header-->	
+
+
+<div class="generic-container" ng-controller="histoCtrl">
+          <div class="panel panel-default historic" >
+                <!-- Default panel contents -->
+              <div class="panel-heading"><span class="lead">List of Messages for individuals :</span></div>
+              <div class="tablecontainer" >
+                  <table class="table table-hover">
+                      <thead>
+                          <tr>    
+                              <th>phone</th>
+                              <th>sendDate</th>
+                              <th>text</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr ng-repeat="msg in msgs">
+                              <td><span ng-bind="msg.phone">{{msg.phone}}</span></td>
+                              <td><span ng-bind="msg.sendDate">{{msg.sendDate}}</span></td>
+                              <td><span ng-bind="msg.text">{{msg.text}}</span></td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+          
+                    <div class="panel panel-default historic">
+                <!-- Default panel contents -->
+              <div class="panel-heading"><span class="lead">List of Messages for groups :</span></div>
+              <div class="tablecontainer">
+                  <table class="table table-hover">
+                      <thead>
+                          <tr>
+                              <th>sendDate</th>
+                              <th>text</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr ng-repeat="msgAll in msgsAll">
+                              <td><span ng-bind="msgAll.sendDate">{{msgAll.sendDate}}</span></td>
+                              <td><span ng-bind="msgAll.text">{{msgAll.text}}</span></td>
+                   
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+          </div>

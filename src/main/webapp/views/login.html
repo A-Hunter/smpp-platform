@@ -1,0 +1,27 @@
+
+ <div class="box" >
+
+    <div id="login">
+
+      <h2>Log In</h2>
+
+      <form>
+
+        <fieldset>
+
+          <p><label for="email">E-mail address</label></p>
+          <p><input type="email" id="email" placeholder="mail@address.com" ng-model="authen.email" onblur="checkInput(this)"></p>
+
+          <p><label for="password">Password</label></p>
+          <p><input type="password" id="password" placeholder="password" ng-model="authen.password" onblur="checkInput(this)"></p>
+
+          <p><input type="submit" value="Sign In" ng-click="authenticate()"></p>
+			 <p class="inscri"><a href="http://localhost:8080/trituxsms-ang/index.html#/crudUser"/>Inscription Here</p>
+        </fieldset>
+
+      </form>
+
+    </div>
+    <!-- end login -->
+
+  </div>

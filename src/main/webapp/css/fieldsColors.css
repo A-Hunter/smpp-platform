@@ -1,0 +1,52 @@
+
+      .lastName.ng-valid {
+          background-color: lightgreen;
+      }
+      .lastName.ng-dirty.ng-invalid-required {
+          background-color: red;
+      }
+      .lastName.ng-dirty.ng-invalid-minlength {
+          background-color: yellow;
+      }
+
+      .firstName.ng-valid {
+          background-color: lightgreen;
+      }
+      .firstName.ng-dirty.ng-invalid-required {
+          background-color: red;
+      }
+      .firstName.ng-dirty.ng-invalid-minlength {
+          background-color: yellow;
+      }
+
+
+      .email.ng-valid {
+          background-color: lightgreen;
+      }
+      .email.ng-dirty.ng-invalid-required {
+          background-color: red;
+      }
+      .email.ng-dirty.ng-invalid-email {
+          background-color: yellow;
+      }
+      
+      .password.ng-valid {
+          background-color: lightgreen;
+      }
+      .password.ng-dirty.ng-invalid-required {
+          background-color: red;
+      }
+      .password.ng-dirty.ng-invalid-minlength {
+          background-color: yellow;
+      }
+
+      .phoneNumber.ng-valid {
+          background-color: lightgreen;
+      }
+      .phoneNumber.ng-dirty.ng-invalid-required {
+          background-color: red;
+      }
+      .phoneNumber.ng-dirty.ng-invalid-minlength {
+          background-color: yellow;
+      }
+
