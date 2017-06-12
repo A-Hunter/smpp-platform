@@ -13,15 +13,6 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableWebMvc
 @ComponentScan(basePackages = "com.smpp.platform")
 public class HelloWorldConfiguration extends WebMvcConfigurerAdapter{
-	
-//	@Override
-//	public void configureViewResolvers(ViewResolverRegistry registry) {
-//		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-//		viewResolver.setViewClass(JstlView.class);
-//		viewResolver.setPrefix("/WEB-INF/views/");
-//		viewResolver.setSuffix(".html");
-//		registry.viewResolver(viewResolver);
-//	}
 
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry registry) {

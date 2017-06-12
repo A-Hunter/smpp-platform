@@ -1,8 +1,6 @@
 package com.smpp.platform.controllers;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import com.smpp.platform.entities.SendAllMessage;
 import com.smpp.platform.services.MultipleSMS;
@@ -29,10 +27,7 @@ public class SendAllSMSController {
 	public void pleaseSendAllSMS(@RequestBody final SendAllMessage msg) throws SchedulerException, ParseException {
 		
 		SmppJob s = new SmppJob() ;
-		
 		s.sendings(msg);
-	//	multiplesms.sendAllSMS(msg);
-		
 	}
 	
 	@RequestMapping(value = "/sendAllSMSMale", method = RequestMethod.POST, headers = "Accept=application/json")
@@ -40,10 +35,7 @@ public class SendAllSMSController {
 	public void pleaseSendAllSMSMale(@RequestBody final SendAllMessage msg) throws SchedulerException, ParseException {
 		
 		SmppJob s = new SmppJob() ;
-		
 		s.sendings(msg);
-		//multiplesms.sendAllSMSMale(msg);
-		
 	}
 	
 	@RequestMapping(value = "/sendAllSMSFemale", method = RequestMethod.POST, headers = "Accept=application/json")
@@ -51,9 +43,6 @@ public class SendAllSMSController {
 	public void pleaseSendAllSMSFemale(@RequestBody final SendAllMessage msg) throws SchedulerException, ParseException {
 		
 		SmppJob s = new SmppJob() ;
-		
 		s.sendings(msg);
-		//multiplesms.sendAllSMSFemale(msg);
-		
 	}
 }

@@ -4,7 +4,6 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 
 import com.smpp.platform.entities.SendMessage;
 import org.quartz.JobBuilder;
@@ -19,38 +18,14 @@ import org.quartz.impl.StdSchedulerFactory;
 
 
 public class SmppJobSingle {
-
-
 	
 	public void sendings(SendMessage msg) throws ParseException, SchedulerException{
-	//JobBuilder.
-	// This method should contain the multiple-sms-sending process .. 
-	// I should look for it in Jsmpp lib 
-//	SimpleDateFormat formatter = new SimpleDateFormat("EEEE, MMM dd, yyyy HH:mm:ss a");
-	//String dateInString = "Thursday, May 26, 2016 10:35:00 AM";
+
 	String startDateStr ;//= "2013-09-27 00:00:00.0";
 	startDateStr=msg.getSendDate();
     DateFormat stDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     Date startDate = stDate.parse(startDateStr);
-	Date date = null;
-	/**
-	 DateFormat stDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss",Locale.US);
-	      
 
-	    Date startDate = stDate.parse(startDateStr);
-	 */
-/*
-	try {
-		date = formatter.parse(msg.getSendDate());
-		System.out.println(date);
-		System.out.println(formatter.format(date));
-	} catch (ParseException e) {
-		e.printStackTrace();
-	}
-*/
-
-		
-		//try {
 			SchedulerFactory schedulerFactory = new StdSchedulerFactory();
 			Scheduler scheduler = schedulerFactory.getScheduler();
 		JobDetail jobDetail = JobBuilder.newJob(SMPPsmsSendingsSingle.class)
