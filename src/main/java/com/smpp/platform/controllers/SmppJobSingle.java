@@ -41,35 +41,9 @@ public class SmppJobSingle {
 			    .startAt(startDate)
 			    .withSchedule(SimpleScheduleBuilder.simpleSchedule())
 			    .build();
-		//CronScheduleBuilder.cronSchedule("0 0 9-12 * * ?")
-		//jobDetail.getJobDataMap().put(SMPPsmsSendings.ID, msg.getId());
-		/**
-		jobDetail.getJobDataMap().put(SMPPsmsSendings.SENDDATE, msg.getSendDate());
-		jobDetail.getJobDataMap().put(SMPPsmsSendings.TEXT,msg.getText());
-		*/
-	//	jobDetail.getJobDataMap().put("sendDate", msg.getSendDate());
-	//	jobDetail.getJobDataMap().put("text",msg.getText());
 	
 		scheduler.start();
 		scheduler.scheduleJob(jobDetail, trigger);
-	/*
-		try {
-			//wait for 30 seconds to finish the job
-			Thread.sleep(30000);
-			
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		} catch (SchedulerException e) {
-            e.printStackTrace();
-        }
-       */ 
-	//	multiplesms.sendAllSMS(msg);
-		
-		//scheduler.shutdown(true);
-	//	multiplesms.sendAllSMS(msg);
-	
-
 }
 
 }

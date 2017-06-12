@@ -20,17 +20,9 @@ public class UserServiceImpl implements UserService{
 	TrituxSMSDal db;
 	private static final String KEY = "user:";
 
-	public long counter ;
-
-	//public  List<User> users ;
-	//public  List<SendMessage> msgs ;
-	//public  List<SendAllMessage> msgsAll ;
 	@PostConstruct
 	public void init(){
 		User u = findAdmin();
-		//users = populateUsers();
-		//msgs = listMessages();
-		//msgsAll = listAllMessages();
 	}
 
 	public Parameters getParameters(){
@@ -94,19 +86,10 @@ public class UserServiceImpl implements UserService{
 		pu.delete(user);
 	}
 
-//	public List<User> findByIndexProp(Property p){
-//		JedisPersistenceUnit pu = db.getPersistenceUnit();
-//		List<User> ul = new ArrayList<User>();
-//		ul = (List<User>) pu.findByIndexedProperty(User.class, p.getPropertyType().toString(), u.getEmail());
-//		return ul;
-//	}
-
 	public User findUserById(long id){
 		JedisPersistenceUnit pu = db.getPersistenceUnit();
 		return pu.findById(User.class, id);
 	}
-
-	/******************************************************************************************/
 
 	public void saveSendMessage(SendMessage sendMessage) {
 		JedisPersistenceUnit pu = db.getPersistenceUnit();
@@ -134,7 +117,6 @@ public class UserServiceImpl implements UserService{
 		JedisPersistenceUnit pu = db.getPersistenceUnit();
 		List<SendMessage> ul = new ArrayList<SendMessage>();
 		SendMessage u = new SendMessage();
-		//return db.findUsers(null);
 		ul = pu.findAll(SendMessage.class, null);
 		return ul;
 
@@ -144,7 +126,6 @@ public class UserServiceImpl implements UserService{
 		JedisPersistenceUnit pu = db.getPersistenceUnit();
 		List<SendAllMessage> ul = new ArrayList<SendAllMessage>();
 		SendAllMessage u = new SendAllMessage();
-		//return db.findUsers(null);
 		ul = pu.findAll(SendAllMessage.class, null);
 		return ul;
 

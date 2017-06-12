@@ -8,14 +8,9 @@ import org.jsmpp.bean.TypeOfNumber;
 import org.jsmpp.session.BindParameter;
 import org.jsmpp.session.SMPPSession;
 
-//@Component
-//@Transactional
 public class BindEsmesSmsc {
 	public void bind(String server,int port, SMPPSession session){
 		try {
-			// set RegisteredDelivery
-			///////////////  This section will be omited 
-		//	session.setMessageReceiverListener(new MessageReceiverListenerImpl()); 
 			session.connectAndBind("localhost", 8056,
                       new BindParameter(BindType.BIND_TRX, "test",
                                           "test", "cp",

@@ -101,15 +101,6 @@ public class JedisEntityManager<T> {
 		}catch(Exception ee){
 			throw new RuntimeException("Problem",ee);
 		}
-		
-//	user.setFirstName(properties.get("firstName"));
-//	user.setLastName(properties.get("lastName"));
-//	user.setGender(properties.get("gender"));
-//	user.setEmail(properties.get("email"));
-//	user.setRole(properties.get("role"));
-//	user.setPassword(properties.get("password"));
-//	user.setPhoneNumber(properties.get("phoneNumber"));
-//
 	}
 	
 	public void persist(Object o){

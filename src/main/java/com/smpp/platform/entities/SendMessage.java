@@ -1,7 +1,5 @@
 package com.smpp.platform.entities;
 
-import java.util.Date;
-
 import com.smpp.platform.dal.GeneratedValue;
 import com.smpp.platform.dal.Id;
 

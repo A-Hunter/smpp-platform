@@ -11,37 +11,39 @@ import java.util.List;
 public interface UserService {
 
 
-	//User findById(long id);
-	User findAdmin();
-	//User findByEmail(String email);
-	Parameters getParameters();
-	//User findByPassword(String password);
-	List<User> findAllUsers();
-	//User findByGender(String gender);
+    //User findById(long id);
+    User findAdmin();
 
-	void saveUser(User user);
+    //User findByEmail(String email);
+    Parameters getParameters();
 
-	void updateUser(User user);
+    //User findByPassword(String password);
+    List<User> findAllUsers();
+    //User findByGender(String gender);
 
-	void deleteUser(User user);
-	//void deleteUserById(long id);
+    void saveUser(User user);
 
-	//List<User> findAllUsers();
+    void updateUser(User user);
 
-	User findUserById(long id);
+    void deleteUser(User user);
+    //void deleteUserById(long id);
 
-	List<SendMessage> findMsgs();
+    //List<User> findAllUsers();
 
-	List<SendMessage> listMessages();
+    User findUserById(long id);
 
-	List<SendAllMessage> findAllMsgs();
+    List<SendMessage> findMsgs();
 
-	List<SendAllMessage> listAllMessages();
+    List<SendMessage> listMessages();
 
-	void saveSendMessage(SendMessage sendMessage);
+    List<SendAllMessage> findAllMsgs();
 
-	void saveSendAllMessage(SendAllMessage sendAllMessage);
+    List<SendAllMessage> listAllMessages();
 
-	public boolean isUserExist(User user);
-	
+    void saveSendMessage(SendMessage sendMessage);
+
+    void saveSendAllMessage(SendAllMessage sendAllMessage);
+
+    public boolean isUserExist(User user);
+
 }

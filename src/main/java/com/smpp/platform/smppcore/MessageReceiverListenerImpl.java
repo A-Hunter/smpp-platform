@@ -11,10 +11,6 @@ import org.jsmpp.session.MessageReceiverListener;
 import org.jsmpp.session.Session;
 import org.jsmpp.util.InvalidDeliveryReceiptException;
 
-/**
- * @author uudashr
- *
- */
 public class MessageReceiverListenerImpl implements MessageReceiverListener {
     public void onAcceptDeliverSm(DeliverSm deliverSm)
             throws ProcessRequestException {
@@ -28,23 +24,12 @@ public class MessageReceiverListenerImpl implements MessageReceiverListener {
                 long id = Long.parseLong(delReceipt.getId()) & 0xffffffff;
                 String messageId = Long.toString(id, 16).toUpperCase();
                 
-                /*
-                 * you can update the status of your submitted message on the
-                 * database based on messageId
-                 */
-                
                 System.out.println("Receiving delivery receipt for message '" + messageId + " ' from " + deliverSm.getSourceAddr() + " to " + deliverSm.getDestAddress() + " : " + delReceipt);
             } catch (InvalidDeliveryReceiptException e) {
                 System.err.println("Failed getting delivery receipt");
                 e.printStackTrace();
             }
         } else {
-            // this message is regular short message
-            
-            /*
-             * you can save the incoming message to database.
-             */
-            
             System.out.println("Receiving message : " + new String(deliverSm.getShortMessage()));
         }
     }
