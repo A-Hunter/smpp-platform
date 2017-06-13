@@ -31,7 +31,6 @@ import java.util.Locale;
 @Service
 public class GroupSMSService {
     private static TimeFormatter timeFormatter = new AbsoluteTimeFormatter();
-    ;
 
     int port = 8056;
     String server = "localhost";
@@ -267,7 +266,4 @@ public class GroupSMSService {
         UnbindEsmesSmsc unbindEsmesSmsc = new UnbindEsmesSmsc();
         unbindEsmesSmsc.unbind(session);
     }
-
 }
-
-

@@ -6,16 +6,17 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SMPPApplicationContextAware implements ApplicationContextAware{
-	private static ApplicationContext applicationContext;
-	public void setApplicationContext(ApplicationContext applicationContext)
-			throws BeansException {
-		SMPPApplicationContextAware.applicationContext=applicationContext;
-		
-	}
-	
-	public static ApplicationContext getContext(){
-		return applicationContext;
-	}
+public class SMPPApplicationContextAware implements ApplicationContextAware {
+    private static ApplicationContext applicationContext;
+
+    public void setApplicationContext(ApplicationContext applicationContext)
+            throws BeansException {
+        SMPPApplicationContextAware.applicationContext = applicationContext;
+
+    }
+
+    public static ApplicationContext getContext() {
+        return applicationContext;
+    }
 
 }

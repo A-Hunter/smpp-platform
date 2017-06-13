@@ -1,12 +1,9 @@
 package com.smpp.platform.services;
 
-import com.smpp.platform.entities.GroupSMS;
 import com.smpp.platform.entities.Parameters;
-import com.smpp.platform.entities.IndividualSMS;
 import com.smpp.platform.entities.User;
 
 import java.util.List;
-
 
 public interface UserService {
 

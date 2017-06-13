@@ -15,25 +15,25 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
-@RequestMapping(value="/api")
+@RequestMapping(value = "/api")
 @ComponentScan("com.smpp.platform")
 public class AuthenticationController {
 
-	@Autowired
+    @Autowired
     AuthenticationService autoServ;
-   
-    
+
+
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST, headers = "Accept=application/json")
     @ResponseBody
-    public ResponseEntity authenticateTheUser(@RequestBody final Login login )throws Exception {
+    public ResponseEntity authenticateTheUser(@RequestBody final Login login) throws Exception {
         System.out.println("Searching for User with the email : " + login.getEmail());
-        User u=autoServ.authenticate(login.getEmail(), login.getPassword());
-        if(u==null){
-        	return ResponseEntity.status(HttpStatus.OK).body(null);
-        }else{
-        	return ResponseEntity.status(HttpStatus.OK).body(u);
+        User u = autoServ.authenticate(login.getEmail(), login.getPassword());
+        if (u == null) {
+            return ResponseEntity.status(HttpStatus.OK).body(null);
+        } else {
+            return ResponseEntity.status(HttpStatus.OK).body(u);
         }
-   
+
     }
- 
+
 }

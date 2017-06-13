@@ -1,6 +1,5 @@
 package com.smpp.platform.services;
 
-
 import com.smpp.platform.dal.AppDal;
 import com.smpp.platform.entities.IndividualSMS;
 import com.smpp.platform.smppcore.BindEsmeSmsc;
@@ -19,7 +18,6 @@ import javax.annotation.PreDestroy;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 
 @Service
 public class IndividualSMSService {
@@ -86,8 +84,6 @@ public class IndividualSMSService {
             System.err.println("Invalid PDU parameter");
             e.printStackTrace();
         }
-
-
     }
 
     @PreDestroy
@@ -104,5 +100,4 @@ public class IndividualSMSService {
 
         System.out.println("finish!");
     }
-
 }

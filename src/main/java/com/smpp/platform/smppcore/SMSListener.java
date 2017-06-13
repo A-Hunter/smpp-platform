@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class SMSListener {
 
-	public void listenerSMS(SMPPSession session){
-		
-		session.setMessageReceiverListener(new MessageReceiverListenerImpl()); 
-	}
+    public void listenerSMS(SMPPSession session) {
+
+        session.setMessageReceiverListener(new MessageReceiverListenerImpl());
+    }
 }

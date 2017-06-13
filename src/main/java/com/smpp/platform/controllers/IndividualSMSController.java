@@ -11,21 +11,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
-
 @Controller
-@RequestMapping(value="/api")
+@RequestMapping(value = "/api")
 @ComponentScan("com.tritux.sms.web")
 public class IndividualSMSController {
-	
-	@Autowired
-	IndividualSMSService service;
-	
-	@RequestMapping(value = "/sendSMS", method = RequestMethod.POST, headers = "Accept=application/json")
-	@ResponseBody
-	public void pleaseSendSMS(@RequestBody final IndividualSMS msg) throws Exception {
-		SmppJobSingle s = new SmppJobSingle() ;
-		s.sendings(msg);
-	 }
-	
-	
+
+    @Autowired
+    IndividualSMSService service;
+
+    @RequestMapping(value = "/sendSMS", method = RequestMethod.POST, headers = "Accept=application/json")
+    @ResponseBody
+    public void pleaseSendSMS(@RequestBody final IndividualSMS msg) throws Exception {
+        SmppJobSingle s = new SmppJobSingle();
+        s.sendings(msg);
+    }
 }
