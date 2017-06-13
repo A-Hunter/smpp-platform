@@ -77,14 +77,6 @@ public class JedisPersistenceUnit {
 
 	public void registerEntity(Class t){
 		entities.put(t.getSimpleName(), new JedisEntityManager(t,this));
-					//  key 			// value
-			// getSimpleName = the simple name of the underlying class
-			// added when execution
-		/**
-		 public JedisEntityManager(Class<T> type,JedisPersistenceUnit pu){
-		this(type.getSimpleName(),type,pu);
-		}
-		 */
 	}
 	
 	public JedisEntityManager getEntityManager(Class c){
@@ -92,10 +84,6 @@ public class JedisPersistenceUnit {
 	}
 
 
-	
-
-	
-/**********************************************************/	
 	public <T> T findById(Class<T> type,long id){
 		return (T) getEntityManager(type).findById(id);
 	}
@@ -119,7 +107,5 @@ public class JedisPersistenceUnit {
 	public void delete(Object t){
 		getEntityManager(t.getClass()).delete(t);
 	}
-/**********************************************************/	
 
-	
 }

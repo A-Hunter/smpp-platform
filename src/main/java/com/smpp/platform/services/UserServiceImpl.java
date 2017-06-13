@@ -1,7 +1,7 @@
 package com.smpp.platform.services;
 
 import com.smpp.platform.dal.JedisPersistenceUnit;
-import com.smpp.platform.dal.TrituxSMSDal;
+import com.smpp.platform.dal.AppDal;
 import com.smpp.platform.entities.Parameters;
 import com.smpp.platform.entities.SendAllMessage;
 import com.smpp.platform.entities.SendMessage;
@@ -17,7 +17,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService{
 
 	@Autowired
-	TrituxSMSDal db;
+    AppDal db;
 	private static final String KEY = "user:";
 
 	@PostConstruct

@@ -1,6 +1,6 @@
 package com.smpp.platform.services;
 
-import com.smpp.platform.dal.TrituxSMSDal;
+import com.smpp.platform.dal.AppDal;
 import com.smpp.platform.entities.SendAllMessage;
 import com.smpp.platform.entities.User;
 import com.smpp.platform.smppcore.BindEsmesSmsc;
@@ -37,7 +37,7 @@ public class MultipleSMS {
     String server = "localhost";
 
     @Autowired
-    TrituxSMSDal db;
+    AppDal db;
 
     SMPPSession session;
     Address address = null;

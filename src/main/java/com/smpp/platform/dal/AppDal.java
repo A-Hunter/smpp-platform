@@ -1,11 +1,6 @@
 package com.smpp.platform.dal;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicLong;
 
 import javax.annotation.PostConstruct;
 
@@ -13,19 +8,12 @@ import com.smpp.platform.entities.Parameters;
 import com.smpp.platform.entities.SendAllMessage;
 import com.smpp.platform.entities.SendMessage;
 import com.smpp.platform.entities.User;
-import org.jsmpp.bean.SubmitMultiResult;
-import org.jsmpp.util.TimeFormatter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
-
-import redis.clients.jedis.Jedis;
 
 @Component
 @Scope("singleton")
-public class TrituxSMSDal {
+public class AppDal {
    public static final String USERS_MAX="usersMax";
    public static final String SMS_MAX="smsMax";
    public static final String SMS_ALL_MAX="smsAllMax";

@@ -1,6 +1,6 @@
 package com.smpp.platform.smppcore;
 
-import com.smpp.platform.dal.TrituxSMSDal;
+import com.smpp.platform.dal.AppDal;
 import org.jsmpp.bean.AlertNotification;
 import org.jsmpp.bean.DataSm;
 import org.jsmpp.bean.DeliverSm;
@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 public class ReceptListener {
 	 
 	@Autowired
-	TrituxSMSDal db;
+    AppDal db;
 	
 	public void listen(SMPPSession session){
 		// Set listener to receive deliver_sm

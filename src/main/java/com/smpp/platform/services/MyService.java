@@ -1,7 +1,7 @@
 package com.smpp.platform.services;
 
 
-import com.smpp.platform.dal.TrituxSMSDal;
+import com.smpp.platform.dal.AppDal;
 import com.smpp.platform.entities.SendMessage;
 import com.smpp.platform.smppcore.BindEsmeSmsc;
 import com.smpp.platform.smppcore.ReceptListener;
@@ -29,7 +29,7 @@ public class MyService {
     String server = "localhost";
 
     @Autowired
-    TrituxSMSDal db;
+    AppDal db;
     SMPPSession session;
 
     @Autowired
@@ -45,11 +45,6 @@ public class MyService {
     }
 
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    //String dateInString = "Thursday, May 26, 2016 10:35:00 AM";
-    /**
-     * DateFormat stDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-     * Date startDate = stDate.parse(startDateStr);
-     */
     Date date;
 
     public void sendSMS(SendMessage sendMessage) {

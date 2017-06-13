@@ -2,7 +2,7 @@ package com.smpp.platform.controllers;
 
 import java.text.ParseException;
 
-import com.smpp.platform.configuration.TrituxApp;
+import com.smpp.platform.configuration.SMPPApplicationContextAware;
 import com.smpp.platform.entities.SendAllMessage;
 import com.smpp.platform.services.MultipleSMS;
 import org.quartz.Job;
@@ -16,7 +16,7 @@ public class SMPPsmsSendings implements Job {
 				throws JobExecutionException {
 
 
-		MultipleSMS mSMS = TrituxApp.getContext().getBean(MultipleSMS.class) ;
+		MultipleSMS mSMS = SMPPApplicationContextAware.getContext().getBean(MultipleSMS.class) ;
 		SendAllMessage msg = new SendAllMessage();
 
 		JobDataMap dataMap = context.getJobDetail().getJobDataMap();

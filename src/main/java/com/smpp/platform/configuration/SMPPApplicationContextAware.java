@@ -6,11 +6,11 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TrituxApp implements ApplicationContextAware{
+public class SMPPApplicationContextAware implements ApplicationContextAware{
 	private static ApplicationContext applicationContext;
 	public void setApplicationContext(ApplicationContext applicationContext)
 			throws BeansException {
-		TrituxApp.applicationContext=applicationContext;
+		SMPPApplicationContextAware.applicationContext=applicationContext;
 		
 	}
 	
