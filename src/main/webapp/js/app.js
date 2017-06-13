@@ -1,7 +1,7 @@
 'use strict';
 
 //defini par trituxsms-ang
-var app = angular.module('trituxsms-ang', ['ngRoute','ngResource','ui.bootstrap']);
+var app = angular.module('smpp-platform', ['ngRoute','ngResource','ui.bootstrap']);
 
 app.config(['$routeProvider',
   function($routeProvider) {
