@@ -1,8 +1,8 @@
 package com.smpp.platform.controllers;
 
 import com.smpp.platform.configuration.SMPPApplicationContextAware;
-import com.smpp.platform.entities.SendMessage;
-import com.smpp.platform.services.MyService;
+import com.smpp.platform.entities.IndividualSMS;
+import com.smpp.platform.services.IndividualSMSService;
 import org.quartz.Job;
 import org.quartz.JobDataMap;
 import org.quartz.JobExecutionContext;
@@ -16,8 +16,8 @@ public class SMPPsmsSendingsSingle implements Job {
 				throws JobExecutionException {
 
 
-		MyService mSMS = SMPPApplicationContextAware.getContext().getBean(MyService.class) ;
-		SendMessage msg = new SendMessage();
+		IndividualSMSService mSMS = SMPPApplicationContextAware.getContext().getBean(IndividualSMSService.class) ;
+		IndividualSMS msg = new IndividualSMS();
 
 		JobDataMap dataMap = context.getJobDetail().getJobDataMap();
 

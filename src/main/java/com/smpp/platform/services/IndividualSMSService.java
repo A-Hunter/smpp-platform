@@ -2,7 +2,7 @@ package com.smpp.platform.services;
 
 
 import com.smpp.platform.dal.AppDal;
-import com.smpp.platform.entities.SendMessage;
+import com.smpp.platform.entities.IndividualSMS;
 import com.smpp.platform.smppcore.BindEsmeSmsc;
 import com.smpp.platform.smppcore.ReceptListener;
 import com.smpp.platform.smppcore.UnbindEsmeSmsc;
@@ -22,7 +22,7 @@ import java.util.Date;
 
 
 @Service
-public class MyService {
+public class IndividualSMSService {
     private static TimeFormatter timeFormatter = new AbsoluteTimeFormatter();
 
     int port = 8056;
@@ -47,10 +47,10 @@ public class MyService {
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     Date date;
 
-    public void sendSMS(SendMessage sendMessage) {
+    public void sendSMS(IndividualSMS individualSMS) {
 
         try {
-            date = formatter.parse(sendMessage.getSendDate());
+            date = formatter.parse(individualSMS.getSendDate());
             System.out.println(date);
             System.out.println(formatter.format(date));
         } catch (ParseException e) {
@@ -70,16 +70,16 @@ public class MyService {
                     TypeOfNumber.INTERNATIONAL,
                     NumberingPlanIndicator.UNKNOWN, "1616",
                     TypeOfNumber.INTERNATIONAL,
-                    NumberingPlanIndicator.UNKNOWN, sendMessage.getPhone(),
+                    NumberingPlanIndicator.UNKNOWN, individualSMS.getPhone(),
                     new ESMClass(), (byte) 0, (byte) 1, timeFormatter
                             .format(date), null, registeredDelivery,
                     (byte) 0, new GeneralDataCoding(Alphabet.ALPHA_DEFAULT,
-                            MessageClass.CLASS1, false), (byte) 0, sendMessage.getText().getBytes());
+                            MessageClass.CLASS1, false), (byte) 0, individualSMS.getText().getBytes());
 
             System.out.println("Message submitted, message_id is "
                     + messageId);
-            db.addMessage(sendMessage);//(messageId, sendMessage);
-            System.out.println("'" + sendMessage.getText() + "' is your message and it is stored now in Redis Database");
+            db.addMessage(individualSMS);//(messageId, individualSMS);
+            System.out.println("'" + individualSMS.getText() + "' is your message and it is stored now in Redis Database");
 
         } catch (Exception e) {
             // Invalid PDU parameter

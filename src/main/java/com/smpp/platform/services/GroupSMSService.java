@@ -1,7 +1,7 @@
 package com.smpp.platform.services;
 
 import com.smpp.platform.dal.AppDal;
-import com.smpp.platform.entities.SendAllMessage;
+import com.smpp.platform.entities.GroupSMS;
 import com.smpp.platform.entities.User;
 import com.smpp.platform.smppcore.BindEsmesSmsc;
 import com.smpp.platform.smppcore.SMSListener;
@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.Locale;
 
 @Service
-public class MultipleSMS {
+public class GroupSMSService {
     private static TimeFormatter timeFormatter = new AbsoluteTimeFormatter();
     ;
 
@@ -63,9 +63,9 @@ public class MultipleSMS {
         return arr;
     }
 
-    public void sendAllSMS(SendAllMessage sendAllMessage) throws ParseException {
+    public void sendAllSMS(GroupSMS groupSMS) throws ParseException {
 
-        String startDateStr = sendAllMessage.getSendDate(); //= "2013-09-27 00:00:00.0";
+        String startDateStr = groupSMS.getSendDate(); //= "2013-09-27 00:00:00.0";
         DateFormat stDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
         Date startDate = stDate.parse(startDateStr);
 
@@ -88,7 +88,7 @@ public class MultipleSMS {
                     new ESMClass(), (byte) 0, (byte) 1, timeFormatter
                             .format(startDate), null, new RegisteredDelivery(SMSCDeliveryReceipt.SUCCESS),
                     ReplaceIfPresentFlag.REPLACE,
-                    new GeneralDataCoding(Alphabet.ALPHA_DEFAULT, MessageClass.CLASS1, false), (byte) 0, sendAllMessage.getText().getBytes());
+                    new GeneralDataCoding(Alphabet.ALPHA_DEFAULT, MessageClass.CLASS1, false), (byte) 0, groupSMS.getText().getBytes());
 
             System.out.println("Message submitted, message_id is "
                     + result.getMessageId());
@@ -97,9 +97,9 @@ public class MultipleSMS {
             System.out.println("Messages submitted, result is " + result);
             System.out.println("Messages submitted, result is " + result);
             System.out.println("Messages submitted, result is " + result);
-            db.addAllMessage(sendAllMessage);//(result.getMessageId(), result,sendAllMessage);
+            db.addAllMessage(groupSMS);//(result.getMessageId(), result,groupSMS);
 
-            System.out.println("'" + sendAllMessage.getText() + "' is your message and it is stored now in Redis Database");
+            System.out.println("'" + groupSMS.getText() + "' is your message and it is stored now in Redis Database");
 
             Thread.sleep(2000);
         } catch (PDUException e) {
@@ -127,9 +127,9 @@ public class MultipleSMS {
         }
     }
 
-    public void sendAllSMSMale(SendAllMessage sendAllMessage) throws ParseException {
+    public void sendAllSMSMale(GroupSMS groupSMS) throws ParseException {
 
-        String startDateStr = sendAllMessage.getSendDate(); //= "2013-09-27 00:00:00.0";
+        String startDateStr = groupSMS.getSendDate(); //= "2013-09-27 00:00:00.0";
 
         Date startDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S").parse(startDateStr);
 
@@ -153,7 +153,7 @@ public class MultipleSMS {
                     new ESMClass(), (byte) 0, (byte) 1, timeFormatter
                             .format(startDate), null, new RegisteredDelivery(SMSCDeliveryReceipt.SUCCESS),
                     ReplaceIfPresentFlag.REPLACE,
-                    new GeneralDataCoding(Alphabet.ALPHA_DEFAULT, MessageClass.CLASS1, false), (byte) 0, sendAllMessage.getText().getBytes());
+                    new GeneralDataCoding(Alphabet.ALPHA_DEFAULT, MessageClass.CLASS1, false), (byte) 0, groupSMS.getText().getBytes());
 
             System.out.println("Message submitted, message_id is "
                     + result.getMessageId());
@@ -162,9 +162,9 @@ public class MultipleSMS {
             System.out.println("Messages submitted, result is " + result);
             System.out.println("Messages submitted, result is " + result);
             System.out.println("Messages submitted, result is " + result);
-            db.addAllMessage(sendAllMessage);//(result.getMessageId(), result,sendAllMessage);
+            db.addAllMessage(groupSMS);//(result.getMessageId(), result,groupSMS);
 
-            System.out.println("'" + sendAllMessage.getText() + "' is your message and it is stored now in Redis Database");
+            System.out.println("'" + groupSMS.getText() + "' is your message and it is stored now in Redis Database");
 
             Thread.sleep(2000);
         } catch (PDUException e) {
@@ -192,9 +192,9 @@ public class MultipleSMS {
         }
     }
 
-    public void sendAllSMSFemale(SendAllMessage sendAllMessage) throws ParseException {
+    public void sendAllSMSFemale(GroupSMS groupSMS) throws ParseException {
 
-        String startDateStr = sendAllMessage.getSendDate(); //= "2013-09-27 00:00:00.0";
+        String startDateStr = groupSMS.getSendDate(); //= "2013-09-27 00:00:00.0";
         Date startDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S").parse(startDateStr);
 
         try {
@@ -216,7 +216,7 @@ public class MultipleSMS {
                     new ESMClass(), (byte) 0, (byte) 1, timeFormatter
                             .format(startDate), null, new RegisteredDelivery(SMSCDeliveryReceipt.SUCCESS),
                     ReplaceIfPresentFlag.REPLACE,
-                    new GeneralDataCoding(Alphabet.ALPHA_DEFAULT, MessageClass.CLASS1, false), (byte) 0, sendAllMessage.getText().getBytes());
+                    new GeneralDataCoding(Alphabet.ALPHA_DEFAULT, MessageClass.CLASS1, false), (byte) 0, groupSMS.getText().getBytes());
 
             System.out.println("Message submitted, message_id is "
                     + result.getMessageId());
@@ -225,9 +225,9 @@ public class MultipleSMS {
             System.out.println("Messages submitted, result is " + result);
             System.out.println("Messages submitted, result is " + result);
             System.out.println("Messages submitted, result is " + result);
-            db.addAllMessage(sendAllMessage);//(result.getMessageId(), result,sendAllMessage);
+            db.addAllMessage(groupSMS);//(result.getMessageId(), result,groupSMS);
 
-            System.out.println("'" + sendAllMessage.getText() + "' is your message and it is stored now in Redis Database");
+            System.out.println("'" + groupSMS.getText() + "' is your message and it is stored now in Redis Database");
 
             Thread.sleep(2000);
         } catch (PDUException e) {

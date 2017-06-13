@@ -2,9 +2,9 @@ package com.smpp.platform.services;
 
 import com.smpp.platform.dal.JedisPersistenceUnit;
 import com.smpp.platform.dal.AppDal;
+import com.smpp.platform.entities.GroupSMS;
+import com.smpp.platform.entities.IndividualSMS;
 import com.smpp.platform.entities.Parameters;
-import com.smpp.platform.entities.SendAllMessage;
-import com.smpp.platform.entities.SendMessage;
 import com.smpp.platform.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -91,42 +91,42 @@ public class UserServiceImpl implements UserService{
 		return pu.findById(User.class, id);
 	}
 
-	public void saveSendMessage(SendMessage sendMessage) {
+	public void saveSendMessage(IndividualSMS individualSMS) {
 		JedisPersistenceUnit pu = db.getPersistenceUnit();
-		pu.persist(sendMessage);
+		pu.persist(individualSMS);
 
 	}
 
-	public void saveSendAllMessage(SendAllMessage sendAllMessage) {
+	public void saveSendAllMessage(GroupSMS groupSMS) {
 		JedisPersistenceUnit pu = db.getPersistenceUnit();
-		pu.persist(sendAllMessage);
+		pu.persist(groupSMS);
 
 	}
 
-	public List<SendMessage> findMsgs() {
+	public List<IndividualSMS> findMsgs() {
 		return listMessages();
 
 	}
 
-	public List<SendAllMessage> findAllMsgs() {
+	public List<GroupSMS> findAllMsgs() {
 		return listAllMessages();
 
 	}
 
-	public List<SendMessage> listMessages() {
+	public List<IndividualSMS> listMessages() {
 		JedisPersistenceUnit pu = db.getPersistenceUnit();
-		List<SendMessage> ul = new ArrayList<SendMessage>();
-		SendMessage u = new SendMessage();
-		ul = pu.findAll(SendMessage.class, null);
+		List<IndividualSMS> ul = new ArrayList<IndividualSMS>();
+		IndividualSMS u = new IndividualSMS();
+		ul = pu.findAll(IndividualSMS.class, null);
 		return ul;
 
 	}
 
-	public List<SendAllMessage> listAllMessages() {
+	public List<GroupSMS> listAllMessages() {
 		JedisPersistenceUnit pu = db.getPersistenceUnit();
-		List<SendAllMessage> ul = new ArrayList<SendAllMessage>();
-		SendAllMessage u = new SendAllMessage();
-		ul = pu.findAll(SendAllMessage.class, null);
+		List<GroupSMS> ul = new ArrayList<GroupSMS>();
+		GroupSMS u = new GroupSMS();
+		ul = pu.findAll(GroupSMS.class, null);
 		return ul;
 
 	}

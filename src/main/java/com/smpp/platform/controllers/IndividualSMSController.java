@@ -1,7 +1,7 @@
 package com.smpp.platform.controllers;
 
-import com.smpp.platform.entities.SendMessage;
-import com.smpp.platform.services.MyService;
+import com.smpp.platform.entities.IndividualSMS;
+import com.smpp.platform.services.IndividualSMSService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping(value="/api")
 @ComponentScan("com.tritux.sms.web")
-public class SendSMSController {
+public class IndividualSMSController {
 	
 	@Autowired
-	MyService service;
+	IndividualSMSService service;
 	
 	@RequestMapping(value = "/sendSMS", method = RequestMethod.POST, headers = "Accept=application/json")
 	@ResponseBody
-	public void pleaseSendSMS(@RequestBody final SendMessage msg) throws Exception {
+	public void pleaseSendSMS(@RequestBody final IndividualSMS msg) throws Exception {
 		SmppJobSingle s = new SmppJobSingle() ;
 		s.sendings(msg);
 	 }

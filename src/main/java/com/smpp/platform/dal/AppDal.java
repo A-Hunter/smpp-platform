@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
+import com.smpp.platform.entities.GroupSMS;
+import com.smpp.platform.entities.IndividualSMS;
 import com.smpp.platform.entities.Parameters;
-import com.smpp.platform.entities.SendAllMessage;
-import com.smpp.platform.entities.SendMessage;
 import com.smpp.platform.entities.User;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -24,8 +24,8 @@ public class AppDal {
 		System.out.println(">>>>Create Jedis connection");
 		pu=new JedisPersistenceUnit("localhost",port);
 		pu.registerEntity(User.class);
-		pu.registerEntity(SendMessage.class);
-		pu.registerEntity(SendAllMessage.class);
+		pu.registerEntity(IndividualSMS.class);
+		pu.registerEntity(GroupSMS.class);
 		pu.registerEntity(Parameters.class);
 		
 		
@@ -56,42 +56,42 @@ public class AppDal {
 		public  User findByIndexedProperty(Class<User> type,String property,String value){
 			return pu.findByIndexedProperty(type,property, value);
 		}
-/*  --------------  SendMessage -----------------*/
-		public void addMessage(SendMessage msg){	
+/*  --------------  IndividualSMS -----------------*/
+		public void addMessage(IndividualSMS msg){
 			pu.persist(msg);
 		}
-		public void mergeMessage(SendMessage msg){
+		public void mergeMessage(IndividualSMS msg){
 			pu.merge(msg);
 		}
-		public void removeUser(SendMessage msg){	
+		public void removeUser(IndividualSMS msg){
 			pu.delete(msg);
 		}
-		public SendMessage findByIdMsg(Class<SendMessage> type,long id){
-			return pu.findById(SendMessage.class, id);
+		public IndividualSMS findByIdMsg(Class<IndividualSMS> type, long id){
+			return pu.findById(IndividualSMS.class, id);
 		}
-		public  List<SendMessage> findAllMsg(Class<SendMessage> type,ObjectFilter<SendMessage> filter){
+		public  List<IndividualSMS> findAllMsg(Class<IndividualSMS> type, ObjectFilter<IndividualSMS> filter){
 			return pu.findAll(type, filter);
 		}
-		public  SendMessage findByIndexedPropertyMsg(Class<SendMessage> type,String property,String value){
+		public IndividualSMS findByIndexedPropertyMsg(Class<IndividualSMS> type, String property, String value){
 			return pu.findByIndexedProperty(type,property, value);
 		}
-		/*  --------------  SendAllMessage -----------------*/
-		public void addAllMessage(SendAllMessage msg){	
+		/*  --------------  GroupSMS -----------------*/
+		public void addAllMessage(GroupSMS msg){
 			pu.persist(msg);
 		}
-		public void mergeAllMessage(SendAllMessage msg){
+		public void mergeAllMessage(GroupSMS msg){
 			pu.merge(msg);
 		}
-		public void removeAllUser(SendAllMessage msg){	
+		public void removeAllUser(GroupSMS msg){
 			pu.delete(msg);
 		}
-		public SendAllMessage findByIdMsgAll(Class<SendAllMessage> type,long id){
-			return pu.findById(SendAllMessage.class, id);
+		public GroupSMS findByIdMsgAll(Class<GroupSMS> type, long id){
+			return pu.findById(GroupSMS.class, id);
 		}
-		public  List<SendAllMessage> findAllMsgAll(Class<SendAllMessage> type,ObjectFilter<SendAllMessage> filter){
+		public  List<GroupSMS> findAllMsgAll(Class<GroupSMS> type, ObjectFilter<GroupSMS> filter){
 			return pu.findAll(type, filter);
 		}
-		public  SendAllMessage findByIndexedPropertyMsgAll(Class<SendAllMessage> type,String property,String value){
+		public GroupSMS findByIndexedPropertyMsgAll(Class<GroupSMS> type, String property, String value){
 			return pu.findByIndexedProperty(type,property, value);
 		}
 
@@ -134,7 +134,7 @@ public class AppDal {
 	}	
 	
 
-		public void addSentMessage(String messageId, SendMessage sendMessage){
+		public void addSentMessage(String messageId, IndividualSMS sendMessage){
 
 			sendMessage.setSmsId(messageId) ;
 			Map<String, String> sms = new HashMap<String, String>();
@@ -149,10 +149,10 @@ public class AppDal {
 		}
 
 		
-		public SendMessage retrieveMsgs(Long idt){
+		public IndividualSMS retrieveMsgs(Long idt){
 			 
 			Map<String, String> properties = jedis.hgetAll("sms:" + idt);
-			SendMessage msg = new SendMessage();
+			IndividualSMS msg = new IndividualSMS();
 			msg.setIdt(idt);
 			msg.setPhone(properties.get("phone"));
 			msg.setSendDate(properties.get("sendDate"));
@@ -161,10 +161,10 @@ public class AppDal {
 			  
 		}
 		
-		public SendAllMessage retrieveAllMsgs(Long idt){
+		public GroupSMS retrieveAllMsgs(Long idt){
 			 
 			Map<String, String> properties = jedis.hgetAll("smsAll:" + idt);
-		SendAllMessage msgAll = new SendAllMessage();
+		GroupSMS msgAll = new GroupSMS();
 		msgAll.setIdt(idt);
 		msgAll.setSendDate(properties.get("sendDate"));
 		msgAll.setText(properties.get("text"));
@@ -174,7 +174,7 @@ public class AppDal {
 			  
 		}
 		
-		public void addSentMessage(String messageId, SendAllMessage sendAllMessage){
+		public void addSentMessage(String messageId, GroupSMS sendAllMessage){
 
 			sendAllMessage.setId(messageId) ;
 			Map<String, String> sms = new HashMap<String, String>();
@@ -188,7 +188,7 @@ public class AppDal {
 			 
 		}
 		
-		public void addSentMessage(String messageId,SubmitMultiResult result, SendAllMessage sendAllMessage){
+		public void addSentMessage(String messageId,SubmitMultiResult result, GroupSMS sendAllMessage){
 
 			sendAllMessage.setId(messageId) ;
 			Map<String, String> sms = new HashMap<String, String>();
@@ -201,10 +201,10 @@ public class AppDal {
 			 jedis.hmset("smsAll:"+sendAllMessage.getIdt(), sms);
 			 
 		}
-		public SendMessage retrieveMsg(Long id){
+		public IndividualSMS retrieveMsg(Long id){
 			 
 			Map<String, String> properties = jedis.hgetAll("sms:");
-			SendMessage msg = new SendMessage();
+			IndividualSMS msg = new IndividualSMS();
 			msg.setIdt(id);
 			msg.setSmsId(properties.get("smsId"));
 			msg.setPhone(properties.get("phone"));
@@ -215,10 +215,10 @@ public class AppDal {
 			  
 		}
 		
-		public SendAllMessage retrieveAllMsg(Long id){
+		public GroupSMS retrieveAllMsg(Long id){
 			 
 			Map<String, String> properties = jedis.hgetAll("smsAll:");
-			SendAllMessage msgAll = new SendAllMessage();
+			GroupSMS msgAll = new GroupSMS();
 			msgAll.setIdt(id);
 			msgAll.setId(properties.get("smsId"));
 			msgAll.setSendDate(properties.get("sendDate"));

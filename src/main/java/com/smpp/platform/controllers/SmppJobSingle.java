@@ -5,7 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.smpp.platform.entities.SendMessage;
+import com.smpp.platform.entities.IndividualSMS;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
@@ -19,7 +19,7 @@ import org.quartz.impl.StdSchedulerFactory;
 
 public class SmppJobSingle {
 	
-	public void sendings(SendMessage msg) throws ParseException, SchedulerException{
+	public void sendings(IndividualSMS msg) throws ParseException, SchedulerException{
 
 	String startDateStr ;//= "2013-09-27 00:00:00.0";
 	startDateStr=msg.getSendDate();

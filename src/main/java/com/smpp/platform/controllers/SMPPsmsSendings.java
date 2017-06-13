@@ -3,8 +3,8 @@ package com.smpp.platform.controllers;
 import java.text.ParseException;
 
 import com.smpp.platform.configuration.SMPPApplicationContextAware;
-import com.smpp.platform.entities.SendAllMessage;
-import com.smpp.platform.services.MultipleSMS;
+import com.smpp.platform.entities.GroupSMS;
+import com.smpp.platform.services.GroupSMSService;
 import org.quartz.Job;
 import org.quartz.JobDataMap;
 import org.quartz.JobExecutionContext;
@@ -16,8 +16,8 @@ public class SMPPsmsSendings implements Job {
 				throws JobExecutionException {
 
 
-		MultipleSMS mSMS = SMPPApplicationContextAware.getContext().getBean(MultipleSMS.class) ;
-		SendAllMessage msg = new SendAllMessage();
+		GroupSMSService mSMS = SMPPApplicationContextAware.getContext().getBean(GroupSMSService.class) ;
+		GroupSMS msg = new GroupSMS();
 
 		JobDataMap dataMap = context.getJobDetail().getJobDataMap();
 		String sendDate = dataMap.getString("sendDate");

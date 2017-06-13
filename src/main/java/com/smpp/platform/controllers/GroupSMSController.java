@@ -2,8 +2,8 @@ package com.smpp.platform.controllers;
 
 import java.text.ParseException;
 
-import com.smpp.platform.entities.SendAllMessage;
-import com.smpp.platform.services.MultipleSMS;
+import com.smpp.platform.entities.GroupSMS;
+import com.smpp.platform.services.GroupSMSService;
 import org.quartz.SchedulerException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -17,14 +17,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping(value="/api")
 @ComponentScan("com.tritux.sms.web")
-public class SendAllSMSController {
+public class GroupSMSController {
 	
 	@Autowired
-	MultipleSMS multiplesms;
+	GroupSMSService multiplesms;
 	
 	@RequestMapping(value = "/sendAllSMS", method = RequestMethod.POST, headers = "Accept=application/json")
 	@ResponseBody
-	public void pleaseSendAllSMS(@RequestBody final SendAllMessage msg) throws SchedulerException, ParseException {
+	public void pleaseSendAllSMS(@RequestBody final GroupSMS msg) throws SchedulerException, ParseException {
 		
 		SmppJob s = new SmppJob() ;
 		s.sendings(msg);
@@ -32,7 +32,7 @@ public class SendAllSMSController {
 	
 	@RequestMapping(value = "/sendAllSMSMale", method = RequestMethod.POST, headers = "Accept=application/json")
 	@ResponseBody
-	public void pleaseSendAllSMSMale(@RequestBody final SendAllMessage msg) throws SchedulerException, ParseException {
+	public void pleaseSendAllSMSMale(@RequestBody final GroupSMS msg) throws SchedulerException, ParseException {
 		
 		SmppJob s = new SmppJob() ;
 		s.sendings(msg);
@@ -40,7 +40,7 @@ public class SendAllSMSController {
 	
 	@RequestMapping(value = "/sendAllSMSFemale", method = RequestMethod.POST, headers = "Accept=application/json")
 	@ResponseBody
-	public void pleaseSendAllSMSFemale(@RequestBody final SendAllMessage msg) throws SchedulerException, ParseException {
+	public void pleaseSendAllSMSFemale(@RequestBody final GroupSMS msg) throws SchedulerException, ParseException {
 		
 		SmppJob s = new SmppJob() ;
 		s.sendings(msg);

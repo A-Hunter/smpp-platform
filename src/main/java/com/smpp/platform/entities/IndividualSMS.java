@@ -3,7 +3,7 @@ package com.smpp.platform.entities;
 import com.smpp.platform.dal.GeneratedValue;
 import com.smpp.platform.dal.Id;
 
-public class SendMessage {
+public class IndividualSMS {
 	@Id
 	@GeneratedValue
 	private long id;

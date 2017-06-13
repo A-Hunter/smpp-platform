@@ -4,7 +4,7 @@ import com.smpp.platform.dal.GeneratedValue;
 import com.smpp.platform.dal.Id;
 
 
-public class SendAllMessage {
+public class GroupSMS {
 	@Id
 	@GeneratedValue
 	private long id;
