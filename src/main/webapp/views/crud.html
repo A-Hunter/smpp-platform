@@ -148,8 +148,6 @@
                       </thead>
                       <tbody>
                           <tr ng-repeat="u in ctrl.users" ng-show="((user.id==u.id)&&u.role!=admin)||(isadmin && user.id!=u.id)" >  
-                          <!-- <tr ng-repeat="u in ctrl.users" ng-show="(user.id==u.id||isuser)&&u.role!=admin" >   -->
-                            <!--    <td><span ng-bind="u.id">{{u.id}}</span></td> -->
                               <td><span ng-bind="u.firstName">{{u.firstName}}</span></td>
                               <td><span ng-bind="u.lastName">{{u.lastName}}</span></td>
                               <td><span ng-bind="u.gender">{{u.gender}}</span></td>

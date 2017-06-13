@@ -1,99 +1,91 @@
 <header id="header">
-        <nav class="navbar navbar-default navbar-static-top" role="banner">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                   <div class="navbar-brand">
-						<a href="index.html"><img src="img/logo.png" alt="Logo"></a>
-					</div>
+    <nav class="navbar navbar-default navbar-static-top" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand">
+                    <a href="index.html"><img src="img/logo.png" alt="Logo"></a>
                 </div>
-                        		
-                <div class="navbar-collapse collapse">							
-					<div class="menu">
-						<ul class="nav nav-tabs" role="tablist">
-							<li role="presentation"><a href="/smpp-platform/index.html#/crud" >Users</a></li>
-							<li role="presentation"><a href="/smpp-platform/index.html#/sms" >SMS for individuals</a></li>
-							<li role="presentation"><a href="/smpp-platform/index.html#/smsAll" class="active">SMS for groups</a></li>
-							<li role="presentation"><a href="/smpp-platform/index.html#/histo">Historic</a></li>
-							<li role="presentation"><a href="/smpp-platform/index.html#/login">Log out</a></li>
-						</ul>
-						<ul class="nav nav-tabs" role="tablist" ng-show="isuser">
-							<li role="presentation"><a href="index.html" class="active">COmpte</a></li>
-						</ul>
-					</div>
-				</div>		
-            </div><!--/.container-->
-        </nav><!--/nav-->		
-    </header><!--/header-->	
+            </div>
+
+            <div class="navbar-collapse collapse">
+                <div class="menu">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation"><a href="/smpp-platform/index.html#/crud">Users</a></li>
+                        <li role="presentation"><a href="/smpp-platform/index.html#/sms">SMS for individuals</a></li>
+                        <li role="presentation"><a href="/smpp-platform/index.html#/smsAll" class="active">SMS for
+                            groups</a></li>
+                        <li role="presentation"><a href="/smpp-platform/index.html#/histo">Historic</a></li>
+                        <li role="presentation"><a href="/smpp-platform/index.html#/login">Log out</a></li>
+                    </ul>
+                    <ul class="nav nav-tabs" role="tablist" ng-show="isuser">
+                        <li role="presentation"><a href="index.html" class="active">COmpte</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div><!--/.container-->
+    </nav><!--/nav-->
+</header><!--/header-->
 
 
 <div class="container">
 
-<div id="SMSAll">
-<!--  
-      <h2><span class="fontawesome-lock"></span>Send SMS</h2>
-        <form>
+    <div id="SMSAll">
+        <div class="generic-container">
+            <div class="panel panel-default">
+                <div class="panel-heading"><span class="lead">Send SMS for individuals  </span></div>
+                <div class="formcontainer">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-2 control-lable" for="sendingDate">Send Date</label>
+                            <div class="col-md-7">
+                                <p><label>Please respect this date format : </label></p>
+                                <p><label>exp : 2016-06-08 10:32:00</label></p>
+                                <input type="text" id="sendingDate"
+                                       placeholder="provide the date when you prefer to send your message"
+                                       ng-model="smsAllMessage.sendDate"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-2 control-lable" for="textMessage">Your Message</label>
+                            <div class="col-md-7">
+                                <textarea id="textMessage" placeholder="your text message"
+                                          ng-model="smsAllMessage.text"></textarea>
+                            </div>
+                        </div>
+                    </div>
 
-        <fieldset>
-	        <p><label for="sendingDate">Sending Date</label></p>
-	        <p><label>Please respect this date form :  </label></p>
-	        <p><label>exp : 2016-06-08 10:32:00</label></p>
-			<p><input type="text" id="sendingDate" placeholder="provide the date when you prefer to send your message" ng-model="smsAllMessage.sendDate"/></p>
-	 <p><label for="textMessage">Text Message</label></p>
-	<p><textarea id="textMessage" placeholder="your text message" ng-model="smsAllMessage.text"></textarea></p>
-	<p><button type="submit" value="send" ng-click="sendAllSMS()">Send to all users Now !</button></p>
-	<p><button type="submit" value="send" ng-click="sendAllSMSMale()">Send to all Male users Now !</button></p>
-	<p><button type="submit" value="send" ng-click="sendAllSMSFemale()">Send to all Female users Now !</button></p>
-	<p><button type="submit" value="send" ng-click="backToSMS()">back individual SMS sendings !</button></p>
-	   </fieldset>
+                    <div class="row">
+                        <div class="form-actions floatRight">
 
-      </form>
+                            <p>
+                                <button type="submit" class="btn btn-sm" value="send" ng-click="sendAllSMS()">Send to
+                                    all users Now !
+                                </button>
+                            </p>
+                            <p>
+                                <button type="submit" class="btn btn-sm" value="send" ng-click="sendAllSMSMale()">Send
+                                    to all Male users Now !
+                                </button>
+                            </p>
+                            <p>
+                                <button type="submit" class="btn btn-sm" value="send" ng-click="sendAllSMSFemale()">Send
+                                    to all Female users Now !
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
 
+        </div>
     </div>
-    -->
-              <div class="generic-container">
-          <div class="panel panel-default">
-              <div class="panel-heading"><span class="lead">Send SMS for individuals  </span></div>
-              <div class="formcontainer" >
-
-<!-- <input type="text" id="sendingDate" placeholder="provide the date when you prefer to send your message" ng-model="smsMessage.sendDate"/> -->
-					
-						<div class="row">
-                          <div class="form-group col-md-12">
-                              <label class="col-md-2 control-lable" for="sendingDate">Send Date</label>
-                              <div class="col-md-7">
-                              <p><label>Please respect this date format :  </label></p>
-	       					  <p><label>exp : 2016-06-08 10:32:00</label></p>
-                                  <input type="text" id="sendingDate" placeholder="provide the date when you prefer to send your message" ng-model="smsAllMessage.sendDate"/>	
-                              </div>
-                          </div>
-                      </div>
-					<div class="row">
-                          <div class="form-group col-md-12">
-                              <label class="col-md-2 control-lable" for="textMessage">Your Message</label>
-                              <div class="col-md-7">
-                                  <textarea id="textMessage" placeholder="your text message" ng-model="smsAllMessage.text"></textarea>		
-                              </div>
-                          </div>
-                      </div>
-                      
-                      <div class="row">
-                          <div class="form-actions floatRight">
-
-                           	<p><button type="submit" class="btn btn-sm" value="send" ng-click="sendAllSMS()">Send to all users Now !</button></p>
-							<p><button type="submit" class="btn btn-sm" value="send" ng-click="sendAllSMSMale()">Send to all Male users Now !</button></p>
-							<p><button type="submit" class="btn btn-sm" value="send" ng-click="sendAllSMSFemale()">Send to all Female users Now !</button></p>
-					  </div>
-                      </div>
-                  </form>
-              </div>
-          </div>
-        
-</div>
-</div>
 </div>
