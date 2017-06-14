@@ -10,7 +10,7 @@ public class JedisPersistenceUnit {
 
     private String host;
     private int port;
-    Map<String, JedisEntityManager> entities = new HashMap<String, JedisEntityManager>();
+    private Map<String, JedisEntityManager> entities = new HashMap<String, JedisEntityManager>();
 
     public JedisPersistenceUnit(String host, int port) {
         this.host = host;
@@ -32,46 +32,30 @@ public class JedisPersistenceUnit {
     }
 
     public void hmset(final String a, final Map<String, String> map) {
-        invoke(new JedisAwareAction<Object>() {
-            public Object run(Jedis connection) {
-                connection.hmset(a, map);
-                return null;
-            }
+        invoke(connection -> {
+            connection.hmset(a, map);
+            return null;
         });
     }
 
     public void set(final String a, final String b) {
-        invoke(new JedisAwareAction<Object>() {
-            public Object run(Jedis connection) {
-                connection.set(a, b);
-                return null;
-            }
+        invoke(connection -> {connection.set(a, b);
+            return null;
         });
     }
 
     public String get(final String a) {
-        return invoke(new JedisAwareAction<String>() {
-            public String run(Jedis connection) {
-                return connection.get(a);
-            }
-        });
+        return invoke(connection -> connection.get(a));
     }
 
     public Map<String, String> hgetAll(final String a) {
-        return invoke(new JedisAwareAction<Map<String, String>>() {
-            public Map<String, String> run(Jedis connection) {
-                return connection.hgetAll(a);
-            }
-        });
+        return invoke(connection ->connection.hgetAll(a));
     }
 
 
     public void del(final String... a) {
-        invoke(new JedisAwareAction<Object>() {
-            public Object run(Jedis connection) {
-                connection.del(a);
-                return null;
-            }
+        invoke(connection -> {connection.del(a);
+            return null;
         });
     }
 
