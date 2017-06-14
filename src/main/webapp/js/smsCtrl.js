@@ -17,5 +17,4 @@ app.controller('smsCtrl',
 		$scope.returnCrud=function(){
 			$location.path("/crud");
 		}
-
 });

@@ -7,7 +7,6 @@ app.controller('authenCtrl',
 			"email" : "",
 			"password":""
 		};
-
 		$scope.authenticate= function() {
 			authenService.authenUser($scope.authen,function(data){ //récuperer les données des utilisateur à partir du service
 				console.log(data.data);

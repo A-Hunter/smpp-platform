@@ -1,6 +1,5 @@
 'use strict';
 
-//defini par trituxsms-ang
 var app = angular.module('smpp-platform', ['ngRoute','ngResource','ui.bootstrap']);
 
 app.config(['$routeProvider',
@@ -57,12 +56,10 @@ app.constant('CONFIG', {
 			sendAllMale :TOMCAT_HOST+'/api/sendAllSMSMale',
 			sendAllFemale :TOMCAT_HOST+'/api/sendAllSMSFemale',
 			crud : TOMCAT_HOST+'/api/user/',
-			//historics : TOMCAT_HOST+'/api/historic1/',
 			histo1 : TOMCAT_HOST+'/api/historic/',
 			histo2 : TOMCAT_HOST+'/api/historicAll/',
 			authenUser :TOMCAT_HOST+'/api/authenticate'
 		}
-
 	}
 });
 

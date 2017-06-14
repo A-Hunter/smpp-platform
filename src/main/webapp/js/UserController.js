@@ -1,9 +1,8 @@
 'use strict';
 
-app.controller('UserController', ['$scope' ,'User','$location','authenService', function($scope, User,$location,authenService) {
-	///////////
+app.controller('UserController', ['$scope' ,'User','$location','authenService',
+                                                function($scope, User,$location,authenService) {
 
-    //////////
 	$scope.admin="admin";
 	$scope.disconnect=function(){
 		$location.path("/login");
@@ -13,10 +12,7 @@ app.controller('UserController', ['$scope' ,'User','$location','authenService', 
     self.user= new User();
     
     self.users=[];
-    /**
-     listAllUsers() 
-     findAllUsers();
-     */
+
     self.fetchAllUsers = function(){
   	  self.users = User.query();// all users
   	  $scope.allusers=User.query();
@@ -26,13 +22,10 @@ app.controller('UserController', ['$scope' ,'User','$location','authenService', 
   	  console.log($scope.allusers);
   	  console.log($scope.user.role);
   	  if(angular.equals($scope.user.role,"admin")){
-  		$scope.isadmin=true;
-  		  
+      		$scope.isadmin=true;
   		}else{
   			$scope.isuser=true;
-  			
   		}
-  	  
   	  console.log($scope.isadmin);
     };
      

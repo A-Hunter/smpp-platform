@@ -12,7 +12,6 @@ app.factory('User', ['$resource', function ($resource) {
     	        remove: {
     	            method: 'DELETE'
     	        }
-    			
     		}
     );
 }]);

@@ -4,7 +4,6 @@ app.service('smsAllServiceMale', function ($http, $log, $location, CONFIG) {
 	return {
 		sendAllMale: function(smsAllMessage) {
         console.log("sending message to all users");
- //sendAllSMS
             $http.post(CONFIG.backendResources.SMS.sendAllMale,smsAllMessage).
                 then(function (response) {
                  
@@ -13,7 +12,6 @@ app.service('smsAllServiceMale', function ($http, $log, $location, CONFIG) {
                 }, function (response) {
                     $log.error('failed to create new sms: ' + response.data);
                 });
-                
     }
 };
 });

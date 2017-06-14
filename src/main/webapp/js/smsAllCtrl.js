@@ -17,7 +17,6 @@ app.controller('smsAllCtrl',
 		$scope.sendAllSMSFemale= function() {
 			smsAllServiceFemale.sendAllFemale($scope.smsAllMessage);
 		}
-		
 			$scope.backToSMS= function() {
 			$location.path('/sms');
 		}
