@@ -26,23 +26,23 @@ public class GroupSMSController {
     @ResponseBody
     public void pleaseSendAllSMS(@RequestBody final GroupSMS msg) throws SchedulerException, ParseException {
 
-        SmppJob s = new SmppJob();
-        s.sendings(msg);
+        SmppJobForGroupSMS s = new SmppJobForGroupSMS();
+        s.send(msg);
     }
 
     @RequestMapping(value = "/sendAllSMSMale", method = RequestMethod.POST, headers = "Accept=application/json")
     @ResponseBody
     public void pleaseSendAllSMSMale(@RequestBody final GroupSMS msg) throws SchedulerException, ParseException {
 
-        SmppJob s = new SmppJob();
-        s.sendings(msg);
+        SmppJobForGroupSMS s = new SmppJobForGroupSMS();
+        s.send(msg);
     }
 
     @RequestMapping(value = "/sendAllSMSFemale", method = RequestMethod.POST, headers = "Accept=application/json")
     @ResponseBody
     public void pleaseSendAllSMSFemale(@RequestBody final GroupSMS msg) throws SchedulerException, ParseException {
 
-        SmppJob s = new SmppJob();
-        s.sendings(msg);
+        SmppJobForGroupSMS s = new SmppJobForGroupSMS();
+        s.send(msg);
     }
 }

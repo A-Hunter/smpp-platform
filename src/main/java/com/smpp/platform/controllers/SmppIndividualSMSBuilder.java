@@ -8,7 +8,7 @@ import org.quartz.JobDataMap;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
-public class SMPPsmsSendingsSingle implements Job {
+public class SmppIndividualSMSBuilder implements Job {
 
     public void execute(JobExecutionContext context) throws JobExecutionException {
 

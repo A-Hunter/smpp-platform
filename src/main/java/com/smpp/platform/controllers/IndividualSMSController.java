@@ -22,7 +22,7 @@ public class IndividualSMSController {
     @RequestMapping(value = "/sendSMS", method = RequestMethod.POST, headers = "Accept=application/json")
     @ResponseBody
     public void pleaseSendSMS(@RequestBody final IndividualSMS msg) throws Exception {
-        SmppJobSingle s = new SmppJobSingle();
-        s.sendings(msg);
+        SmppJobForIndividualSMS s = new SmppJobForIndividualSMS();
+        s.send(msg);
     }
 }

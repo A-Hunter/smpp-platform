@@ -10,7 +10,7 @@ import org.quartz.JobExecutionException;
 
 import java.text.ParseException;
 
-public class SMPPsmsSendings implements Job {
+public class SmppGroupSMSBuilder implements Job {
 
     public void execute(JobExecutionContext context)
             throws JobExecutionException {

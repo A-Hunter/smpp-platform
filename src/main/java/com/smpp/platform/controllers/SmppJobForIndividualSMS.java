@@ -1,6 +1,6 @@
 package com.smpp.platform.controllers;
 
-import com.smpp.platform.entities.GroupSMS;
+import com.smpp.platform.entities.IndividualSMS;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 
@@ -9,9 +9,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class SmppJob {
+public class SmppJobForIndividualSMS {
 
-    public void sendings(GroupSMS msg) throws ParseException, SchedulerException {
+    public void send(IndividualSMS msg) throws ParseException, SchedulerException {
 
         String startDateStr;//= "2013-09-27 00:00:00.0";
         startDateStr = msg.getSendDate();
@@ -20,9 +20,10 @@ public class SmppJob {
 
         SchedulerFactory schedulerFactory = new StdSchedulerFactory();
         Scheduler scheduler = schedulerFactory.getScheduler();
-        JobDetail jobDetail = JobBuilder.newJob(SMPPsmsSendings.class)
-                .withIdentity("SMPPsmsSendings", "mygroup")
-                .usingJobData("Id", msg.getId())
+        JobDetail jobDetail = JobBuilder.newJob(SmppIndividualSMSBuilder.class)
+                .withIdentity("SmppIndividualSMSBuilder", "mygroup")
+                .usingJobData("Id", msg.getSmsId())
+                .usingJobData("phone", msg.getPhone())
                 .usingJobData("sendDate", msg.getSendDate())
                 .usingJobData("text", msg.getText())
                 .build();
@@ -36,4 +37,5 @@ public class SmppJob {
         scheduler.start();
         scheduler.scheduleJob(jobDetail, trigger);
     }
+
 }
