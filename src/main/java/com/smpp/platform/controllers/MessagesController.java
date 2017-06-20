@@ -2,7 +2,7 @@ package com.smpp.platform.controllers;
 
 import com.smpp.platform.entities.GroupSMS;
 import com.smpp.platform.entities.IndividualSMS;
-import com.smpp.platform.services.SMSService;
+import com.smpp.platform.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpStatus;
@@ -20,7 +20,7 @@ import java.util.List;
 public class MessagesController {
 
     @Autowired
-    SMSService smsService;
+    UserService smsService;
 
     @RequestMapping(value = "/historic", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)//
     public ResponseEntity<List<IndividualSMS>> listMessages() {
